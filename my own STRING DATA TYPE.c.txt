@@ -1,0 +1,162 @@
+//My_Own STRING Data Types
+#include<iostream>
+#include"header.h"
+using namespace std;
+class STRING
+{
+        char *s;
+        public:
+
+        STRING()
+        {
+                s=new char[1];
+                s[0]='\0';
+        }
+
+        STRING(const char *t)
+        {
+                s=new char[my_strlen(t)+1];
+                my_strcpy(s,t);
+        }
+
+        STRING(const STRING &t)
+        {
+                s=new char[my_strlen(t.s)+1];
+                my_strcpy(s,t.s);
+        }
+
+        STRING operator =(STRING t)
+        {
+                if(this!=&t)//prevent self assignment
+                {
+                        delete[] s;
+                        s=new char[my_strlen(t.s)+1];
+                        my_strcpy(this->s,t.s);
+                }
+                return *this;
+        }
+
+        bool operator ==(const STRING &t)
+        {
+        /*
+                int r=my_strcmp(this->s,t.s);
+                if(r==0)
+                        cout << "BOTH ARE EQUAL ";
+                        return t;
+         */
+                return my_strcmp(this->s, t.s) == 0;
+        }
+
+        bool operator !=(STRING t)
+        {
+        /*
+                int r=my_strcmp(this->s,t.s);
+                if(r!=0)
+                        cout << "NOT EQUAL " ;
+                return t;
+         */
+                return my_strcmp(this->s, t.s) != 0;
+        }
+
+        bool operator >(STRING t)
+        {
+                /*
+                   int r=my_strcmp(this->s,t.s);
+                   if(r>0)
+                   cout << "S1 is Greater than s2";
+                   return t;
+                 */
+                return my_strcmp(this->s, t.s) > 0;
+        }
+
+        bool operator <(STRING t)
+        {
+                /*
+                   int r=my_strcmp(this->s,t.s);
+                   if(r<0)
+                   cout << "s2 is Greaterthan s1" ;
+                   return t;
+                 */
+                return my_strcmp(this->s, t.s) < 0;
+        }
+
+        bool operator >=(STRING t)
+        {
+                /*
+                int r=my_strcmp(this->s,t.s);
+                if(r>=0)
+                        cout << "s1 is >= s2";
+                return t;
+                */
+                return my_strcmp(this->s, t.s) >= 0;
+        }
+
+        bool operator <=(STRING t)
+        {
+                /*
+                int r=my_strcmp(this->s,t.s);
+                if(r<=0)
+                        cout << "s1 is <= s2 ";
+                return t;
+                */
+                return my_strcmp(this->s, t.s) <= 0;
+        }
+
+        STRING operator +(const STRING &t)
+        {
+
+                STRING m;
+
+                m.s=new char[my_strlen(this->s)+my_strlen(t.s)+1];
+
+                int i,j;
+
+                for(i=0;this->s[i];i++)
+                        m.s[i]=this->s[i];
+
+                for(j=0 ;t.s[j];j++,i++)
+                        m.s[i]=t.s[j];
+
+                m.s[i]='\0';
+
+                return m;
+        }
+
+        char& operator [](int I)
+        {
+                return s[I];
+        }
+
+        friend istream& operator >> (istream &in,STRING &t);
+        friend ostream& operator << (ostream &out,STRING &t);
+
+        friend void swap(STRING &,STRING &);
+
+        ~STRING()
+        {
+                delete[] s;
+        }
+
+};
+
+void swap(STRING &t1,STRING &t2)
+{
+char t[100];
+
+my_strcpy(t,t1.s);
+my_strcpy(t1.s,t2.s);
+my_strcpy(t2.s,t);
+
+}
+istream& operator >> (istream &in,STRING &t)
+{
+        t.s=new char[1024];
+        in >> t.s;
+        return in;
+}
+
+ostream& operator << (ostream &out,STRING &t)
+{
+        out << t.s;
+        return out;
+}

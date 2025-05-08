@@ -1,0 +1,106 @@
+//Test Cases
+#include"my_STRING.cpp"
+using namespace std;
+int main()
+{
+
+/*
+        STRING s1;
+        string s2;
+        cout << "enter strings" << endl;
+        cin >> s1;
+        cin >> s2;
+        cout << s1 << endl;
+        cout << s2 << endl;
+*/
+
+/*
+        STRING s1="SAI";
+        string s2="krishna";
+        cout << s1 << endl;
+        cout << s2 << endl;
+        cout << s1 << " " << s2 << endl;
+*/
+
+/*
+        STRING s1("SAI");
+        string s2("krishna");
+        cout << s1 << endl;
+        cout << s2 << endl;
+        cout << s1 << " " << s2 << endl;
+*/
+
+/*
+        STRING s1="SAI",s2="SAI";
+        string s3="SAI",s4="SAI";
+        cout << s1 << " " << s2 << endl;
+        cout << s3 << " " << s4 << endl;
+
+        cout << "==" << (s1==s2) << endl;
+        cout << "==" << (s3==s4) << endl;
+
+        cout << "!=" << (s1!=s2) << endl;
+        cout << "!=" << (s3!=s4) << endl;
+
+        cout << ">" << (s1>s2) << endl;
+        cout << ">" << (s3>s4) << endl;
+
+        cout << "<" << (s1<s2) << endl;
+        cout << "<" << (s3<s4) << endl;
+
+        cout << ">=" <<(s1>=s2) << endl;
+        cout << ">=" << (s3>=s4) << endl;
+
+        cout << "<=" << (s1<=s2) << endl;
+        cout << "<=" << (s3<=s4) << endl;
+*/
+
+/*
+        STRING s1,s2,s3;
+        string s4,s5,s6;
+
+        cout << "Enter Strings User Defined" << endl;
+        cin >> s1 >> s2 ;
+
+        cout << "Enter Strings Pre Defined" << endl;
+        cin >> s4 >> s5 ;
+
+        s3=s1+s2;
+        s6=s4+s5;
+
+        cout << s3 << endl;
+        cout << s6 << endl;
+*/
+/*
+        string s1="sai",s2="bye";
+        cout << s1 << " " << s2 << endl;
+        swap(s1,s2);
+
+        cout << s1 << " " << s2 << endl;
+
+        STRING s3="sai",s4="bye";
+
+        cout << s3 << " " << s4 << endl;
+        swap(s3,s4);
+        cout << s3 << " " << s4 << endl;
+*/
+
+        STRING s1[2];
+        string s2[2];
+
+        int i;
+
+        cout << "Enter the user defined Strings " << endl;
+        for(i=0;i<2;i++)
+                cin >> s1[i];
+
+        for(i=0;i<2;i++)
+                cout << s1[i] << endl;
+
+        cout << "Enter the pre defined Strings " << endl;
+        for(i=0;i<2;i++)
+                cin >> s2[i];
+
+        for(i=0;i<2;i++)
+                cout << s2[i]<< endl;
+}
